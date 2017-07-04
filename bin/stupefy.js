@@ -2,12 +2,13 @@
 var stupefy = require("../index");
 var program = require("commander");
 var fs = require("fs");
+var ver = require("../package").version
 
 var fpath;
 
 // Commander
 program
-	.version('1.0.3')
+	.version(ver)
 	.arguments('<file>')
 	.action(function (fp) {
 		fpath = fp;
