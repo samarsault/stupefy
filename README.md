@@ -52,11 +52,10 @@ The configuration file is stored in ```~/.stupefy.json```. Example config file:
 	"tag_end": "}}",
 	"plugins": [ "~/fetch.js", "./LICENSES.js" ]
 }
-
-**NOTE**: If plugin is available as a node module, the module name can be used instead of path
-
 ```
-Every field is optional
+**NOTE**: If plugin is available as a node module, the module name can be used instead of path.
+
+Also, each field is optional
 
 Custom Plugins
 ---
