@@ -1,6 +1,6 @@
 {
   "name": "stupefy",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Lightweight, extensible and unbiased preprocessor.",
   "main": "index.js",
   "repository": {
@@ -13,19 +13,25 @@
   "scripts": {
     "test": "mocha tests"
   },
+  "directories": {
+    "lib": "./lib/",
+    "bin": "./bin"
+  },
   "files": [
-    "index.js",
-    "bin",
-    "lib"
+    "index.js"
   ],
   "author": "Samarjeet Singh",
   "license": "MIT",
-  "keywords": [ "preprocessor", "compile", "extensible", "html" ],
+  "keywords": [
+    "preprocessor",
+    "compile",
+    "extensible",
+    "html"
+  ],
   "bin": {
     "stupefy": "./bin/stupefy.js"
   },
   "dependencies": {
     "commander": "^2.9.0"
   }
-
 }

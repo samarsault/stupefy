@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-var stupefy = require("../index.js");
+var stupefy = require("../index");
 var program = require("commander");
 var fs = require("fs");
 
