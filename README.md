@@ -4,24 +4,28 @@ Stupefy
 Stupefy is a lightweight, extensible Javascript-based preprocessor engine. And yes, its *unbiased* and usable with any file type.
 Plugins form the base of stupefy.
 
-Install
+Installation
 ---
 Stupefy can be installed using npm
-```sh
-$ npm install stupefy
-```
-If you want to use the CLI, you can 
 ```sh
 $ npm install stupefy -g
 ```
 
-Format
+Usage
 ---
-Default Stupefy tags start with '{%' and end with '%}', which can be customized according to needs.
-Each tag(preprocessor directive) has within it a function declaration. For example,
+```sh
+$ stupefy [options] <file name>
+```
+
+Syntax
+---
+Default Stupefy tags start with '{%' and end with '%}', which can be customized as convenient.
+Each tag(preprocessor directive) calls a function, which is a plugin. For example,
 
 ```html
+{% define(title, STUPEFY) %}
 <head>
+	<title>{% print(title) %}</title>
 	<style>
 	{% include(inline-styles.css) %}
 	</style>
@@ -37,3 +41,43 @@ Built-In Plugins
 - print(*variable name*) - print variable
 - include(*filepath*) - include another file
 - include_p(*filepath*) - preprocessor and then include the file
+
+Configuration
+---
+The configuration file is stored in ```~/.stupefy.json```. Example config file:
+
+```json
+{
+	"tag_start": "{{",
+	"tag_end": "}}",
+	"plugins": [ "~/fetch.js", "./LICENSES.js" ]
+}
+
+**NOTE**: If plugin is available as a node module, the module name can be used instead of path
+
+```
+Every field is optional
+
+Custom Plugins
+---
+
+If we make a plugin to fetch data from a url and paste it in the document ->
+
+```js
+// fetch.js
+module.exports = function(stupefy)
+{
+	return {
+		fetch: function(url) {
+			var content = download(url)
+			return content;
+		}
+	}
+}	
+```
+
+This can be used as ->
+
+```html
+<script>{% fetch(http://example.com/jquery.js) %}</script>
+```

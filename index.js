@@ -1,6 +1,7 @@
 var plugins = require("./lib/plugins.js");
 var doProcess = require("./lib/processor.js");
-var tokenize = require("./lib//tokenizer.js");
+var tokenize = require("./lib/tokenizer.js");
+var conf = require('./lib/conf.js');
 
 var stupefy = {
 	// log errors
@@ -40,5 +41,21 @@ var stupefy = {
 }
 
 stupefy.plugins = plugins(stupefy);
+
+if (conf != -1)
+{
+	if (conf.hasOwnProperty('plugins'))
+	{
+		for (var i = 0;i < conf.plugins.length;i++)
+		{
+			plob = require(conf.plugins[i])(stupefy);
+			stupefy.registerPlugin(plob);
+		}
+	}
+	if (conf.hasOwnProperty('tag_start'))
+		stupefy.expr.start = conf.tag_start;
+	if (conf.hasOwnProperty('tag_end'))
+		stupefy.expr.start = conf.tag_end;
+}
 
 module.exports = stupefy;
