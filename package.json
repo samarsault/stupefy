@@ -5,10 +5,10 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/samarjeet27/stupefy"
+    "url": "git://github.com/thelehhman/stupefy"
   },
   "bugs": {
-    "url": "http://github.com/samarjeet27/stupefy/issues"
+    "url": "http://github.com/thelehhman/stupefy/issues"
   },
   "scripts": {
     "test": "mocha tests"
