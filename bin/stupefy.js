@@ -55,7 +55,6 @@ if (typeof fpath != "undefined") {
 				{
 					if (stupefy.autoTags)
 						stupefy.expr = autoTags(path.extname( fpath ));
-					console.log(stupefy.autoTags);
 					var outp = stupefy.process(data);
 					if (typeof program.save != "undefined")
 					{
