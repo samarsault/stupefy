@@ -3,6 +3,7 @@ var stupefy = require("../index");
 var program = require("commander");
 var fs = require("fs");
 var ver = require("../package").version
+var path = require('path');
 
 var fpath;
 
@@ -15,6 +16,29 @@ program
 	})
 	.option('-s, --save [path]', 'Save location')
 	.parse(process.argv);
+
+function autoTags(ext) {
+	ext = ext.toLowerCase();
+	expr = { };
+	switch (ext) {
+		case '.js':case '.cpp':case '.c':case '.java': case '.cs':
+		case '.css': case '.less': case '.scss': case '.ts': case '.sql':
+		case '.go':
+			expr.start = "/*";
+			expr.end = "*/";
+			break;
+		case '.py': case '.rb': case '.sh':
+			expr.start = '#'
+			expr.end = '\n'
+			break;
+		default:
+			expr.start = "{%";
+			expr.end = "%}"
+	}
+	return expr;
+}
+
+stupefy.init();
 
 if (typeof fpath != "undefined") {
 	// check file exists
@@ -29,6 +53,9 @@ if (typeof fpath != "undefined") {
 				}
 				else
 				{
+					if (stupefy.autoTags)
+						stupefy.expr = autoTags(path.extname( fpath ));
+					console.log(stupefy.autoTags);
 					var outp = stupefy.process(data);
 					if (typeof program.save != "undefined")
 					{
