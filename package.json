@@ -1,6 +1,6 @@
 {
   "name": "stupefy",
-  "version": "1.1.0",
+  "version": "1.2.2",
   "description": "Lightweight, extensible and unbiased preprocessor.",
   "main": "index.js",
   "repository": {
@@ -17,9 +17,6 @@
     "lib": "./lib/",
     "bin": "./bin"
   },
-  "files": [
-    "index.js"
-  ],
   "author": "Samarjeet Singh",
   "license": "MIT",
   "keywords": [
