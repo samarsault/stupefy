@@ -23,7 +23,7 @@ $ stupefy update
 ## Installation and Usage
 
 ```sh
-$ npm install -g stupefy
+$ npm install -g stupefy@dev
 ```
 
 It can then be used as -
