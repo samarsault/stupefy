@@ -1,7 +1,7 @@
 {
   "name": "stupefy",
-  "version": "2.0.0",
-  "description": "Code magician",
+  "version": "2.0.1",
+  "description": "A language independent tool for rapid prototyping stuff.",
   "main": "index.js",
   "repository": {
     "type": "git",

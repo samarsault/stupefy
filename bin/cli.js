@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var stupefy = require("..");
 var fs = require("fs");
 var ver = require("../package").version;
