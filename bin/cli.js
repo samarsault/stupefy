@@ -88,7 +88,8 @@ prog
 	});
 
 prog
-	.command("update", "Update all spells")
+	.command("update")
+	.description("Update all spells")
 	.action(function() {
 		var repos = fs.readdirSync(stupefy.conf["spells"]).filter(function(name) {
 			return fs.statSync(path.join(stupefy.conf["spells"], name)).isDirectory();
