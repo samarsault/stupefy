@@ -1,13 +1,9 @@
-/* enchant cpp_include */
+#include <iostream>
 
-using namespace std;
-
-/* just a simple comment bruh */
-int main(void)
+int main(int argc, char *argv[])
 {
-    /* def global, size: 'n', array: 'a' */
-    int a[10], n = 5;
-    
-    /* enchant bsort */
-    /* enchant printArray*/
+	string s = "";
+/* enchant readFile, file: 'hello.txt', str: 's' */
+	cout << s << endl;
+	return 0;
 }
