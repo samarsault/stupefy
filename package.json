@@ -1,6 +1,6 @@
 {
   "name": "stupefy",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "A language independent tool for rapid prototyping stuff.",
   "main": "index.js",
   "repository": {
@@ -38,8 +38,5 @@
   "devDependencies": {
     "eslint": "^4.7.2",
     "mocha": "latest"
-  },
-  "publishConfig": {
-    "tag": "dev"
   }
 }

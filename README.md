@@ -4,7 +4,7 @@ Stupefy is a tool for rapid prototyping of scripts/sites/apps etc.
 ## Installation
 
 ```sh
-$ npm install -g stupefy@dev
+$ npm install -g stupefy
 ```
 
 NOTE: To install and update spells, git is required
@@ -48,6 +48,12 @@ Spellbooks can be updated anytime using the command
 $ stupefy update
 ```
 
+## Variables
+
+Global variables can be defined using *def global*. In an HTML File, for example,
+```html
+<!-- def global, list: [ 1, 2, 3] -->
+```
 ## More Demos
 
 One spell can be enchanted in many languages so that you focus on the application and not the syntax.
