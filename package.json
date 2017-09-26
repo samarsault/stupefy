@@ -1,6 +1,6 @@
 {
   "name": "stupefy",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "A language independent tool for rapid prototyping stuff.",
   "main": "index.js",
   "repository": {
@@ -30,8 +30,7 @@
     "stupefy": "./bin/cli.js"
   },
   "dependencies": {
-    "caporal": "^0.7.0",
-    "filehound": "^1.16.2",
+    "commander": "^2.11.0",
     "handlebars": "^4.0.10",
     "json5": "^0.5.1",
     "simple-git": "^1.77.0"

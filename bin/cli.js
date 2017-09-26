@@ -4,8 +4,9 @@ var stupefy = require("..");
 var fs = require("fs");
 var ver = require("../package").version;
 var path = require("path");
-var prog = require("caporal");
-var spellbook = require("../lib/spellbook")(stupefy);
+// var prog = require("caporal");
+var prog = require("commander");
+var spellbook = stupefy.sbook;
 
 function autoTags(ext) {
 	ext = ext.toLowerCase();
@@ -36,13 +37,14 @@ stupefy.init();
 
 prog
 	.version(ver)
-	.command("enchant", "Enchant a File")
-	.argument("<file>", "Path to file")
-	.option("-o <outputfile>", "Output File Location")
-	.action(function(args, options, logger) {
-		var fpath = args.file;
-		var op = options.o;
-		if(fs.existsSync(fpath)) {
+	.option("-o, --output [ofile]", "output file location (Optional)");
+
+prog
+	.command("enchant [file]")
+	.description("Enchant a File")
+	.action(function(fpath, options) {
+		var op = options.parent.output;
+		if(typeof fpath != "undefined" && fs.existsSync(fpath)) {
 		// read file
 			fs.readFile(fpath, "utf8", function(err, data) {
 				if (err) {
@@ -72,23 +74,41 @@ prog
 			});
 		} 
 		else {
-			console.error("Error: File not found");
+			stupefy.error("Error: File Not Found");
 		}
-	})
-	.command("install", "Add a spellbook")
-	.argument("<url>", "spellbook repository url")
-	.action(function(args, options, logger) {
-		var repo = args.url;
+	});
+
+prog
+	.command("install [url]")
+	.description( "Add a spellbook")
+	.action(function(repo) {
+		if (typeof repo == "undefined")
+			return;
 		spellbook.fetch(repo);
-	})
+	});
+
+prog
 	.command("update", "Update all spells")
 	.action(function() {
-		spellbook.update();
-	})
-	.command("search", "Search for a spell")
-	.argument("<name>", "Name of the spell")
-	.action(function(args, options, logger) {
-		var sName = args.name;
+		var repos = fs.readdirSync(stupefy.conf["spells"]).filter(function(name) {
+			return fs.statSync(path.join(stupefy.conf["spells"], name)).isDirectory();
+		});
+		var i = 0;
+		if (repos)
+		{
+			spellbook.update(repos[i], function() {
+				i++;
+				if (i < repos.length)
+					spellbook.update(repos[i]);
+			});
+		}
+	});
+prog
+	.command("search [name]")
+	.description("Search for a spell")
+	.action(function(sName) {
+		if (typeof sName == "undefined")
+			return;
 		var results = spellbook.list(sName);
 		if (results.length == 0)
 			console.log("No such spell matching: " + sName);
@@ -97,10 +117,13 @@ prog
 				console.log(path.relative(stupefy.conf["spells"], item));
 			});
 		}
-	})
-	.command("list", "List spells")
+	});
+
+prog
+	.command("list")
+	.description("List spells")
 	.action(function() {
-	// list spells
+		// list spells
 		spellbook.list().forEach(function(item) {
 			console.log(path.relative(stupefy.conf["spells"], item));
 		});

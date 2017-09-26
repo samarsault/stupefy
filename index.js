@@ -1,5 +1,6 @@
 var engine = require("./lib/engine");
-var conf = require('./lib/conf');
+var conf = require("./lib/conf");
+var sbook = require("./lib/spellbook");
 
 var stupefy = {
 	init: function() {
@@ -35,7 +36,7 @@ var stupefy = {
 	autoTags: false,
 	// expression structure
 	expr: {
-		start: "{%",
+		start: "{%", // default values
 		end: "%}"
 	},
 	// register plugin object
@@ -54,11 +55,14 @@ var stupefy = {
 			}
 		}
 	},
-	// scope variables
+	// global scope variables
 	variables: { }
 }
 
 stupefy['conf'] = conf();
+stupefy['sbook'] = sbook(stupefy); // sbook should be initialsed before engine as it requires it
 stupefy['engine'] = engine(stupefy);
+// stupefy['spells'] => spell files cache, built when spellbook.list() is called first.
+// ^ ^ contains relative paths
 
-module.exports = stupefy;
+module.exports = stupefy
