@@ -130,4 +130,7 @@ prog
 		});
 	});
 
+if (process.argv.length <= 2)
+	prog.outputHelp();
+
 prog.parse(process.argv);
