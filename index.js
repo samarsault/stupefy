@@ -4,7 +4,7 @@ var sbook = require("./lib/spellbook");
 
 var stupefy = {
 	init: function() {
-		if (!this.conf)
+		if (this.conf)
 		{
 			if (this.conf.hasOwnProperty('plugins'))
 			{
@@ -25,7 +25,7 @@ var stupefy = {
 			}
 		}
 		else {
-			stupefy.autoTags = true;
+			 stupefy.autoTags = true;
 		}
 		
 	},
@@ -47,11 +47,11 @@ var stupefy = {
 		for (var i = 0;i < names.length;i++)
 		{
 			var nm =  names[i];
-			if (!this.plugins.hasOwnProperty(nm)) {
+			if (!this.engine.hasOwnProperty(nm)) {
 				this.engine[nm] = plob[nm];
 			}
 			else {
-				this.error("Already has plugin - " + plobj);
+				this.error("Already has plugin - " + nm);
 			}
 		}
 	},
