@@ -17,7 +17,14 @@ Go ahead and create / install some spells now *(see below)*.
 
 Stupefy *enchants*(modifies) your code with *spells*, i.e. just a fancy name for a couple of [Handlebars](http://handlebarsjs.com) templates which expand as snippets on steroids.
 
-Spells are called using a specific syntax within your code comments. For example,
+Spells are called using a specific syntax within your code comments i.e. -
+
+```sh
+ enchant <spell name>, key1: value1, key2: [ a1, a2 ] */
+```
+where spell name is the file name of the spell.
+
+ For example,
 ```js
 function print() {
     s = '';
@@ -31,12 +38,7 @@ This can be enchanted using:
 $ stupefy enchant <filename> # optional: -o <outputfile>
 ```
 
-The syntax for enchanting is -
-```sh
- enchant <spell name>, key1: value1, key2: [ a1, a2 ] */
-```
-
-Spells are present in spellbooks, which are mere git repositories comprising such Handlebars templates. One such being [this](http://github.com/thelehhman/spellbook).
+Spells are present in spellbooks, which are mere git repositories comprising such Handlebars templates. Adding the templates to t One such being [this](http://github.com/thelehhman/spellbook).
 
 The spellbook can be installed using
 
