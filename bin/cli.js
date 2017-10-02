@@ -37,13 +37,17 @@ stupefy.init();
 
 prog
 	.version(ver)
-	.option("-o, --output [ofile]", "output file location (Optional)");
+	.option("-o, --output [ofile]", "output file location (Optional)")
+	.option("-s --spelldir [directory]", "specify a local spells directory");
 
 prog
 	.command("enchant [file]")
 	.description("Enchant a File")
 	.action(function(fpath, options) {
 		var op = options.parent.output;
+		if (typeof options.parent.spelldir != "undefined")
+			stupefy.conf['spells'] = options.parent.spelldir;
+
 		if(typeof fpath != "undefined" && fs.existsSync(fpath)) {
 		// read file
 			fs.readFile(fpath, "utf8", function(err, data) {
@@ -55,7 +59,7 @@ prog
 					if (stupefy.autoTags) {
 						stupefy.expr = autoTags(ext);
 					}
-					// assing language
+					// assign language
 					stupefy.variables["lang_" + ext.substring(1, ext.length)] = true;
 				
 					var outp = stupefy.engine.process(data);
