@@ -9,7 +9,7 @@ describe("Spellbook", () => {
 	});
 
 	it("Discovers spells correctly", () => {
-		assert.equal(stupefy.sbook.list().length, 2);
+		assert.equal(stupefy.sbook.list().length, 3);
 	});
 
 	it("Enchants spells properly", () => {

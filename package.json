@@ -1,6 +1,6 @@
 {
   "name": "stupefy",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "description": "A language independent tool for rapid prototyping stuff.",
   "main": "index.js",
   "repository": {
