@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/thelehhman/stupefy.svg?branch=master])](https://travis-ci.org/thelehhman/stupefy)
 # stupefy
 Stupefy is a tool for rapid prototyping of scripts/sites/apps etc.
 
