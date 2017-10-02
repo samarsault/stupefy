@@ -73,3 +73,12 @@ The file ```~/.stupefy.json``` can be configured to manipulate -
 - The spellbooks directory, using: spells 
 - Disabling language based opening and closing tags by setting : auto_tags
 - Custom plugins using ``plugins`` array
+
+## Stupefy v/s Snippets
+
+- Language Independent (i.e. same spell can do same stuff across different languages)
+
+  For example, the shell_exec spell allows you to forget about the standard library and emphasize the idea on different programming languages.
+- Support Objects and Arrays as arguments to build up dynamic code (see bootstrap_nav)
+- Code Editor Independent
+- Spells are easier to manage than snippets
