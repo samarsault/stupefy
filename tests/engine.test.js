@@ -20,6 +20,12 @@ describe('Processor', () => {
 		outp = stupefy.engine.process(templ);
 		assert.equal(outp, 'John\t12');
 	})
+
+	it('Includes correctly', () => {
+		templ = "{% include tests/include_test %}";
+		outp = stupefy.engine.process(templ);
+		assert.equal(outp, 'hello world')
+	});
 });
 
 describe('Tokenizer', () => {
