@@ -11,6 +11,8 @@ Go ahead and create / install some spells now *(see below)*.
 
 **NOTE**: To install and update spells, [git](https://git-scm.com/) is required
 
+Read the Spell creation guide [here](https://github.com/thelehhman/stupefy/wiki/Spell-Creation).
+
 ## How it works
 
 [![asciicast](https://asciinema.org/a/139693.png)](https://asciinema.org/a/139693?t=2&speed=1.5)
